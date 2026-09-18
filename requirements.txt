@@ -8,6 +8,7 @@ jupyter
 notebook
 joblib
 scipy
+kaggle
 
 # Bonus GUI (uncomment if attempting the deployment bonus)
 # streamlit

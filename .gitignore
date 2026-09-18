@@ -13,6 +13,7 @@ env/
 data/*
 !data/.gitkeep
 !data/README.md
+!data/download_dataset.py
 
 # Saved models
 models/*.pkl
