@@ -45,8 +45,8 @@ Metrics: Silhouette Score, Davies-Bouldin Index, Calinski-Harabasz Index. PCA (2
 ## Environment setup
 
 ```bash
-git clone https://github.com/Girithar-R/ml-capstone-23cse301.git
-cd ml-capstone-23cse301
+git clone https://github.com/Rushil-99/ML-capstone.git
+cd ML-capstone
 python -m venv venv
 source venv/bin/activate   # venv\Scripts\activate on Windows
 pip install -r requirements.txt
