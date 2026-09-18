@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large/raw files — keep only small samples or a download script tracked)
+data/*
+!data/.gitkeep
+!data/README.md
+
+# Saved models
+models/*.pkl
+models/*.joblib
+
+# OS
+.DS_Store
+Thumbs.db

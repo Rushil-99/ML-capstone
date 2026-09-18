@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+xgboost
+jupyter
+notebook
+joblib
+scipy
+
+# Bonus GUI (uncomment if attempting the deployment bonus)
+# streamlit
+# gradio
