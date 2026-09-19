@@ -62,9 +62,11 @@ pip install -r requirements.txt
 
 ## How to run
 
-1. Place the assigned dataset(s) in `data/`.
+1. `data/raw/autos.csv` is already committed — no download step needed.
 2. Open the relevant notebook in `notebooks/` (`regression.ipynb`, `classification.ipynb`, `clustering.ipynb`).
-3. Run all cells top-to-bottom (`random_state=42` is used throughout for reproducibility).
+3. **Sections A (Dataset & EDA) and B (Preprocessing & Feature Engineering) are already implemented and run end-to-end** — real plots, cleaning, and feature engineering on the actual dataset.
+4. **The algorithms themselves are left as `TODO`s, one per algorithm, for you to fill in** — each has its exact name/notes from the guidelines and a commented skeleton showing which variables to use and which dict keys to populate (`fitted_models`, `predictions`, `probabilities`). Fill each in, then the Evaluation/Tuning/Visualisation cells below them (also `TODO`, since they depend on the trained models) read straight from those dicts.
+5. `random_state=42` is used throughout for reproducibility.
 
 ## Bonus (optional)
 
