@@ -1,28 +1,23 @@
 # data/
 
-Place the instructor-assigned dataset(s) here, one per track if applicable.
+`data/raw/autos.csv` is the single dataset used across **all three tracks** (Regression, Classification, Clustering) — it's committed directly to the repo (68MB, under GitHub's 100MB limit) so notebooks run out-of-the-box without a separate download step. `download_dataset.py` is kept as a fallback / reproducibility script in case the file needs to be re-fetched.
 
-Raw data files are git-ignored (see `.gitignore`) rather than committed directly — use `download_dataset.py` to fetch them locally into `data/raw/`.
+## Dataset: Used Cars — Uncovering Factors that Affect Used Car Prices
 
-## Datasets
+Source: [Kaggle](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) — a cleaned republication of the eBay Kleinanzeigen (German eBay classifieds) used-car listings dataset. Each row is one used-car listing (~371k rows raw, ~312k after cleaning).
 
-| Track | Dataset | Source | Notes |
-|---|---|---|---|
-| Regression | Used Cars — Uncovering Factors that Affect Used Car Prices | [Kaggle](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) | See below. Target: `price` |
-| Classification | TBD | | |
-| Clustering | TBD | | |
+| Track | Target | Framing |
+|---|---|---|
+| Regression | `price` (continuous) | Predict resale price directly |
+| Classification | `price_category` (4 classes) | `price` binned into quartiles: `Budget` / `Economy` / `Premium` / `Luxury` |
+| Clustering | — (unsupervised) | Cluster listings by attributes; `price_category` used only post-hoc to validate/interpret clusters |
 
-### Regression dataset: Used Cars
-
-A cleaned republication of the eBay Kleinanzeigen (German eBay classifieds) used-car listings dataset. Each row is one used-car listing.
-
-**How to get it:**
+**Re-fetching it (if ever needed):**
 ```bash
 pip install kaggle
 # place your Kaggle API token at ~/.kaggle/kaggle.json (see download_dataset.py docstring)
 python data/download_dataset.py
 ```
-This downloads and unzips the dataset into `data/raw/`.
 
 **Data dictionary:**
 
@@ -32,7 +27,7 @@ This downloads and unzips the dataset into `data/raw/`.
 | `name` | Name/title of the car listing |
 | `seller` | Whether the seller is private or a dealer |
 | `offerType` | Type of listing (offer/request) |
-| `price` | **Target variable** — listed price of the car |
+| `price` | Listed price of the car — regression target / source of `price_category` |
 | `abtest` | Whether the listing was part of an A/B test |
 | `vehicleType` | Vehicle body type (e.g. sedan, SUV, bus) |
 | `yearOfRegistration` | Year the car was first registered |
@@ -49,4 +44,4 @@ This downloads and unzips the dataset into `data/raw/`.
 | `postalCode` | Postal code of the seller |
 | `lastSeen` | Last time the crawler saw this ad online |
 
-Known data quality issues to handle in preprocessing (see `notebooks/regression.ipynb`): missing values in `vehicleType`, `gearbox`, `model`, `fuelType`, and `notRepairedDamage`; some unrealistic `price` and `yearOfRegistration` outliers to filter.
+**Cleaning applied (all three notebooks, consistently):** filter to realistic `price` (€100–150,000), `yearOfRegistration` (1950–2016), and `powerPS` (1–1000); drop duplicates and non-predictive columns (IDs, timestamps, picture count); engineer `vehicle_age = 2016 - yearOfRegistration`. Regression/Classification notebooks subsample to 8,000 rows (Clustering to a smaller sample) for computational feasibility of SVR/SVC/GridSearchCV on this environment's hardware — documented inline in each notebook.

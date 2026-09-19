@@ -14,6 +14,9 @@ data/*
 !data/.gitkeep
 !data/README.md
 !data/download_dataset.py
+!data/raw/
+data/raw/*
+!data/raw/autos.csv
 
 # Saved models
 models/*.pkl

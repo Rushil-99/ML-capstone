@@ -14,13 +14,15 @@ End-to-end Machine Learning pipeline covering three tracks — **Regression**, *
 
 ## Problem statement
 
-| Track | Dataset | Target |
-|---|---|---|
-| Classification | [Used Cars — Uncovering Factors that Affect Used Car Prices](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) (Kaggle) | `price` — predict the resale price of a used car from listing attributes (vehicle type, registration year, power, mileage, brand, etc.) |
-| Regression | _TBD_ | |
-| Clustering | _TBD_ | |
+All three tracks use the same source dataset — [Used Cars — Uncovering Factors that Affect Used Car Prices](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) (Kaggle), committed at `data/raw/autos.csv`.
 
-See `data/README.md` for the full data dictionary and download instructions.
+| Track | Target | Framing |
+|---|---|---|
+| Regression | `price` (continuous) | Predict a car's resale price from its listing attributes (vehicle type, registration year, power, mileage, brand, etc.) |
+| Classification | `price_category` (4 classes) | `price` binned into quartiles — `Budget` / `Economy` / `Premium` / `Luxury` — predict the bracket a listing falls into |
+| Clustering | — (unsupervised) | Group listings by their attributes; `price_category` used only post-hoc to interpret/validate clusters |
+
+See `data/README.md` for the full data dictionary.
 
 ## Repository structure
 
