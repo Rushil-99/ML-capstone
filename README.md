@@ -16,8 +16,8 @@ End-to-end Machine Learning pipeline covering three tracks — **Regression**, *
 
 | Track | Dataset | Target |
 |---|---|---|
-| Regression | [Used Cars — Uncovering Factors that Affect Used Car Prices](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) (Kaggle) | `price` — predict the resale price of a used car from listing attributes (vehicle type, registration year, power, mileage, brand, etc.) |
-| Classification | _TBD_ | |
+| Classification | [Used Cars — Uncovering Factors that Affect Used Car Prices](https://www.kaggle.com/datasets/thedevastator/uncovering-factors-that-affect-used-car-prices) (Kaggle) | `price` — predict the resale price of a used car from listing attributes (vehicle type, registration year, power, mileage, brand, etc.) |
+| Regression | _TBD_ | |
 | Clustering | _TBD_ | |
 
 See `data/README.md` for the full data dictionary and download instructions.
