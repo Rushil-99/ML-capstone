@@ -17,6 +17,7 @@ data/*
 !data/raw/
 data/raw/*
 !data/raw/autos.csv
+!data/raw/train.csv
 
 # Saved models
 models/*.pkl
